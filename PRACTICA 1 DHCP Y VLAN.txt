@@ -1,0 +1,316 @@
+S1
+Switch>
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name VLAN10
+Switch(config-vlan)#EXIT
+Switch(config)#vlan 20
+Switch(config-vlan)#name VLAN20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#name VLAN30
+Switch(config-vlan)#exit
+Switch(config)#
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan 10,20,30
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+
+Switch con0 is now available
+
+Press RETURN to get started.
+
+
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)# switchport access vlan 30
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+
+S2
+Switch>
+Switch>vlan 10
+            ^
+% Invalid input detected at '^' marker.
+	
+Switch>conf t
+            ^
+% Invalid input detected at '^' marker.
+	
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name VLAN10
+Switch(config-vlan)#name VLAN10
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name VLAN20
+Switch(config-vlan)#exit
+Switch(config)#vlan 30
+Switch(config-vlan)#name VLAN30
+Switch(config-vlan)#exit
+Switch(config)#
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#wr
+Building configuration...
+[OK]
+Switch#interface FastEthernet0/1
+                 ^
+% Invalid input detected at '^' marker.
+	
+Switch#ena 
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport mode trunk
+
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+
+Switch(config-if)#switchport trunk allowed vlan 10,20,30
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#switchport mode trunk
+
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+
+Switch(config-if)#switchport trunk allowed vlan 10,20,30
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#
+Switch(config)#wr
+               ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+
+
+Switch con0 is now available
+
+Press RETURN to get started.
+
+
+%LINK-5-CHANGED: Interface FastEthernet0/3, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+
+
+Switch>
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#switchport mode trunk
+
+Switch(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+
+Switch(config-if)#
+Switch(config-if)#switchport trunk allowed vlan 10,20,30
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+
+S3
+Switch>
+Switch>
+Switch>conf t
+            ^
+% Invalid input detected at '^' marker.
+	
+Switch>ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name VLAN10
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name VLAN20
+Switch(config-vlan)#exitt
+                        ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-vlan)#exit
+Switch(config)#vlan 30
+Switch(config-vlan)#name VLAN30
+Switch(config-vlan)#interface FastEthernet0/1
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan 10,20,30
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)# switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#end
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#
+Switch#wr
+Building configuration...
+[OK]
+Switch#ena
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#exit
+Switch(config)#
+Switch(config)#wr
+               ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+end
+Translating "end"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+Switch#end
+Translating "end"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+Switch#wr
+Building configuration...
+[OK]
+Switch#
+Switch#
+Switch#
+
+ROUTER 
+Router>
+Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface g0/0
+Router(config-if)#no sh
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+
+Router(config-if)#
+Router(config-if)#exit
+Router(config)#
+Router(config)#interface g0/0.10
+Router(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0.10, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0.10, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 192.168.48.1 255.255.255.0
+Router(config-subif)#exi
+Router(config)#interface GigabitEthernet0/0.20
+Router(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0.20, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0.20, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ip address 192.168.49.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#interface GigabitEthernet0/0.30
+Router(config-subif)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0.30, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0.30, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 30
+Router(config-subif)#ip address 192.168.50.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#ip dhcp pool VLAN10
+Router(dhcp-config)#network 192.168.48.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.48.1
+Router(dhcp-config)#exit
+Router(config)#ip dhcp pool VLAN20
+Router(dhcp-config)#network 192.168.49.0 255.255.255.0
+Router(dhcp-config)# default-router 192.168.49.1
+Router(dhcp-config)#exit
+Router(config)#ip dhcp pool VLAN30
+Router(dhcp-config)#network 192.168.50.0 255.255.255.0
+Router(dhcp-config)# default-router 192.168.50.1
+Router(dhcp-config)#exit
+Router(config)#
+Router(config)#
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#wr
+Building configuration...
+[OK]
+Router#
